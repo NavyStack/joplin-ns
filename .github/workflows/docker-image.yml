@@ -15,8 +15,10 @@ jobs:
       
     - name: Set version based on tag
       run: |
-        echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-        
+        if [ -z "${RELEASE_VERSION}" ]; then
+          echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+        fi
+
     - name: Checkout Joplin Server
       uses: actions/checkout@v4
       with:
