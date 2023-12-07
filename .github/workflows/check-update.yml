@@ -3,6 +3,7 @@ name: Check for updates
 on:
   schedule:
     - cron:  '*/5 * * * *'
+  workflow_dispatch:
 jobs:
   publish:
     runs-on: ubuntu-latest
