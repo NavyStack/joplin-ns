@@ -1,0 +1,55 @@
+# 이 파일은 포스트그레시브 서버와 함께 조플린 서버를 실행하는 데 사용할 수 있는
+# 샘플 도커 컴포즈 파일입니다.
+
+# 앱_베이스_URL: 서비스가 실행될 기본 공개 URL입니다.
+# 인터넷을 통해 Joplin Server에 액세스해야 하는 경우 APP_BASE_URL을 다음과 같이 구성합니다: https://example.com/joplin.
+# 인터넷을 통해 Joplin Server에 액세스할 필요가 없는 경우 APP_BASE_URL을 서버의 호스트 이름으로 설정합니다.
+# 예: http://[호스트명]:22300. 기본 URL에는 포트를 포함할 수 있습니다.
+
+# APP_PORT: Docker 컨테이너가 수신 대기할 로컬 포트입니다.
+# 일반적으로 역방향 프록시를 사용하면 포트 443(TLS)에 매핑됩니다.
+# 인터넷을 통해 Joplin Server에 액세스할 필요가 없는 경우 포트를 22300으로 매핑할 수 있습니다.
+
+version: "3"
+
+services:
+  joplin-db:
+    logging:
+      options:
+        max-size: "10m"
+    image: postgres:16-bullseye
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    restart: unless-stopped
+    environment:
+      - POSTGRES_PASSWORD=joplin
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=joplin
+  joplin-server:
+    logging:
+      options:
+        max-size: "10m"
+    image: navystack/joplin-server:latest
+    depends_on:
+      - joplin-db
+    ports:
+      - "22300:22300"
+    restart: unless-stopped
+    environment:
+      - APP_PORT=22300 # 이 줄은 Traefik 사용시에도 22300 임
+      - APP_BASE_URL=http://localhost:22300
+      - DB_CLIENT=pg
+      - POSTGRES_PASSWORD=joplin
+      - POSTGRES_DATABASE=joplin
+      - POSTGRES_USER=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_HOST=db
+      
+      #- MAILER_ENABLED=true
+      #- MAILER_HOST=smtp.yourmail.tld
+      #- MAILER_PORT=587
+      #- MAILER_SECURITY=ssl
+      #- MAILER_AUTH_USER=no_reply@joplin.yourdomain.tld
+      #- MAILER_AUTH_PASSWORD=YourAwesomePassword
+      #- MAILER_NOREPLY_NAME=JoplinNoReply
+      #- MAILER_NOREPLY_EMAIL=no_reply@joplin.yourdomain.tld
