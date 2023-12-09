@@ -44,3 +44,12 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PORT=5432
       - POSTGRES_HOST=db
+      
+      #- MAILER_ENABLED=true
+      #- MAILER_HOST=smtp.yourmail.tld
+      #- MAILER_PORT=587
+      #- MAILER_SECURITY=ssl
+      #- MAILER_AUTH_USER=no_reply@joplin.yourdomain.tld
+      #- MAILER_AUTH_PASSWORD=YourAwesomePassword
+      #- MAILER_NOREPLY_NAME=JoplinNoReply
+      #- MAILER_NOREPLY_EMAIL=no_reply@joplin.yourdomain.tld
