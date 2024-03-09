@@ -3,7 +3,19 @@
 Curious about automated builds? <br>
 Check out My [NavyStack/joplin-ns](https://github.com/NavyStack/joplin-ns) GITHUB workflows<br>
 
-한국어도 있어요 :) [navystack.com](https://navystack.com/2023/12/github-actions%eb%a5%bc-%ed%99%9c%ec%9a%a9%ed%95%9c-%ec%9e%90%eb%8f%99-%ec%97%85%eb%8d%b0%ec%9d%b4%ed%8a%b8-%ec%9b%8c%ed%81%ac%ed%94%8c%eb%a1%9c%ec%9a%b0-%ea%b5%ac%ec%b6%95%ed%95%98%ea%b8%b0-docker/) <br>
+한국어도 있어요 :) [navystack.com](https://navystack.com/github-actions/github-actions-auto-upate-workflows/) <br>
+
+
+## Askfront.com
+초보자도 자유롭게 질문할 수 있는 포럼을 만들었습니다. <br />
+NavyStack의 가이드 뿐만 아니라, 아니라 모든 종류의 질문을 하실 수 있습니다.
+
+검색해도 도움이 되지 않는 정보만 나오는 것 같고, 주화입마에 빠진 것 같은 기분이 들 때가 있습니다.<br />
+그럴 때, 부담 없이 질문해 주세요. 같이 의논하며 생각해봅시다.
+
+[AskFront.com (에스크프론트) 포럼](https://askfront.com/?github)
+
+
 
 [NavyStack/joplin-ns GITHUB](https://github.com/NavyStack/joplin-ns) <br>
 [NavyStack/joplin-server Dockerhub](https://hub.docker.com/r/navystack/joplin-server) <br><br>
