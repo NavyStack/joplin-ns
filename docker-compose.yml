@@ -17,7 +17,7 @@ services:
     logging:
       options:
         max-size: "10m"
-    image: postgres:16-bullseye
+    image: postgres:17-bullseye
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
     restart: unless-stopped
